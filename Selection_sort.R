@@ -25,5 +25,17 @@ print(a)
 a <- c(4,8,6,10,1,2)
 SelectionSort(a,6)
 
+RecursiveSelectionSort<- function(a, first, last){
+  if (first < last){
+    index <- IndexOfMin(a, first, last)
+    a[first] <- a[index] + a[first]
+    a[index] <- a[first] - a[index]
+    a[first] <- a[first] - a[index]
+    a <- RecursiveSelectionSort(a, first + 1, last)
+  }
+  
+return(a)
+}
+RecursiveSelectionSort(a, 1,6)
 
 
